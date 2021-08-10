@@ -1,0 +1,13 @@
+name = "nowplaying-watcher"
+type = "javascript"
+
+account_id = "27e17a4efbf74ba761465cc4a03912df"
+workers_dev = true
+route = ""
+zone_id = ""
+kv_namespaces = [
+    { binding = "NOW_PLAYING", id = "", preview_id = "" }
+]
+
+[vars]
+WORKER_KEY = "ojR9twaf2MJzDdIeA0cM"
