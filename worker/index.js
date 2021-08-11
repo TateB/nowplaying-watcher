@@ -9,7 +9,8 @@ async function addSong(request) {
   var cache = JSON.parse(originalCache)
   try {
     JSON.parse(body);
-    if (request.headers.get("Authentication") !== process.env.WORKER_KEY) throw new Error("Unauthorised request")
+    console.log("got body")
+    if (request.headers.get("Authentication") !== WORKER_KEY) throw new Error("Unauthorised request")
     if (cache === null) {
       cache = []
     }
@@ -17,6 +18,7 @@ async function addSong(request) {
       cache.shift()
     }
     cache.push({ song: body, timestamp: Math.round(Date.now() / 1000)})
+    console.log("new cache", cache)
     await setCache(JSON.stringify(cache));
     return new Response(body, { status: 200 });
   } catch (err) {
